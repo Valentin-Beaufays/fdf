@@ -1,7 +1,7 @@
 *.o
 *.out
 fdf
-./resources
-./get_next_line
-./libft
-./minilibx-linux
+resources/
+get_next_line/
+libft/
+minilibx-linux/
