@@ -4,13 +4,13 @@ NAME=	fdf
 
 CFLAGS=	-Werror -Wextra -Wall
 
-INCLUDES= -I./libft -I./get_next_line -I./includes
+INCLUDES= -I./libft -I./get_next_line -I./minilibx-linux -I./includes
 
 LIBFT= ./libft/libft.a
 
 MLX= ./minilibx-linux/libmlx_Linux.a
 
-LIB= $(LIBFT) $(MLX)
+LIB= $(LIBFT) $(MLX) -lXext -lX11
 
 FILES=	./srcs/main.c\
 		./srcs/parser.c\

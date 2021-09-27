@@ -94,8 +94,13 @@ int	parser(char *file, t_map *map)
 	while (get_next_line(fd, &line))
 	{
 		if ((parse_line(map, line)) == -1)
+		{
+			free(line);
+			close(fd);
 			return (-1);
+		}
 		free(line);
 	}
+	close(fd);
 	return (0);
 }
