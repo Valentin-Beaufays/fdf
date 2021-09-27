@@ -12,7 +12,8 @@ MLX= ./minilibx-linux/libmlx_Linux.a
 
 LIB= $(LIBFT) $(MLX)
 
-FILES=	./srcs/*main.c\
+FILES=	./srcs/main.c\
+		./srcs/parser.c\
 		./get_next_line/get_next_line.c\
 		./get_next_line/get_next_line_utils.c
 
