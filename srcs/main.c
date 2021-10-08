@@ -15,7 +15,7 @@ void	print_map(t_map *map)
 	{
 		while (j < map->width)
 		{
-			printf("%d ", map->map[i][j]);
+			printf("%d ", (int)map->map[i][j].z);
 			j++;
 		}
 		printf("\n");
@@ -62,7 +62,7 @@ int	main(int argc, char *argv[])
 	init_map(&map);
 	if (argc == 2)
 	{
-		if (parser(argv[1], &map) || gameloop(&map))
+		if (parser(argv[1], &map))// || gameloop(&map))
 			return (-1);//TO_DO: free map->map
 		print_map(&map);
 	}

@@ -21,7 +21,7 @@ typedef struct s_map
 {
 	size_t	height;
 	size_t	width;
-	int		**map;
+	t_point	**map;
 }				t_map;
 
 #endif

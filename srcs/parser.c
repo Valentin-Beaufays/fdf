@@ -22,16 +22,17 @@ static size_t	get_size(char *line)
 	return (size);
 }
 
-static void	fill_line(int *new, char *line)
+static void	fill_line(t_point *new, char *line, size_t width)
 {
 	size_t	i;
 
 	i = 0;
-	while (*line)
+	while (*line && i < width)
 	{
 		if (ft_isdigit(*line))
 		{
-			new[i] = ft_atoi(line);
+			new->z = (double)ft_atoi(line);
+			new++;
 			i++;
 			while (ft_isdigit(*line))
 				line++;
@@ -41,7 +42,7 @@ static void	fill_line(int *new, char *line)
 	}
 }
 
-static void	add_to_map(t_map *map, int **new_map, int *new)
+static void	add_to_map(t_map *map, t_point **new_map, t_point *new)
 {
 	size_t	i;
 
@@ -56,22 +57,21 @@ static void	add_to_map(t_map *map, int **new_map, int *new)
 		free(map->map);
 	map->map = new_map;
 }
-
 static int	parse_line(t_map *map, char *line)
 {
 	size_t	size;
-	int		*new;
-	int		**new_map;
+	t_point	*new;
+	t_point	**new_map;
 
 	size = get_size(line);
-	if (map->width == 0)
+	if (map->width == 0 || map->width > size)
 		map->width = size;
-	else if (map->width != size)
+	else if (map->width == 0)
 		return (-1);
 	new = malloc(sizeof(*new) * size);
 	if (!new)
 		return (-1);
-	fill_line(new, line);
+	fill_line(new, line, map->width);
 	new_map = malloc(sizeof(*new_map) * (map->height + 1));
 	if (!new_map)
 	{
