@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbeaufay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 12:15:18 by vbeaufay          #+#    #+#             */
+/*   Updated: 2021/10/08 12:15:24 by vbeaufay         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "get_next_line.h"
 #include "struct.h"
@@ -57,6 +69,7 @@ static void	add_to_map(t_map *map, t_point **new_map, t_point *new)
 		free(map->map);
 	map->map = new_map;
 }
+
 static int	parse_line(t_map *map, char *line)
 {
 	size_t	size;

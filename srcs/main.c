@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbeaufay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 12:15:08 by vbeaufay          #+#    #+#             */
+/*   Updated: 2021/10/08 12:15:11 by vbeaufay         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "struct.h"
 #include "fdf.h"
 #include "mlx.h"
@@ -62,7 +74,7 @@ int	main(int argc, char *argv[])
 	init_map(&map);
 	if (argc == 2)
 	{
-		if (parser(argv[1], &map))// || gameloop(&map))
+		if (parser(argv[1], &map))
 			return (-1);//TO_DO: free map->map
 		print_map(&map);
 	}
