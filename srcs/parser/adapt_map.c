@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   adapt_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbeaufay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 18:21:30 by vbeaufay          #+#    #+#             */
+/*   Updated: 2021/10/08 18:21:32 by vbeaufay         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "parser.h"
 #include "error.h"
 #include "struct.h"
@@ -6,11 +18,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
-
-static t_point **create_map(size_t width, size_t height)
+static t_point	**create_map(size_t width, size_t height)
 {
-	t_point **map;
+	t_point	**map;
 	size_t	i;
 
 	i = 0;
@@ -56,7 +66,7 @@ static void	fill_map(t_map *map, t_point **new)
 
 void	adapt_map(t_map *map)
 {
-	t_point **new_map;
+	t_point	**new_map;
 
 	new_map = create_map(map->width, map->height);
 	if (!new_map)
