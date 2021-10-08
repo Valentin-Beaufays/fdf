@@ -1,43 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbeaufay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:36:27 by vbeaufay          #+#    #+#             */
-/*   Updated: 2021/10/08 12:38:25 by vbeaufay         ###   ########.fr       */
+/*   Created: 2021/10/08 18:21:06 by vbeaufay          #+#    #+#             */
+/*   Updated: 2021/10/08 18:21:11 by vbeaufay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
+#ifndef ERROR_H
+# define ERROR_H
 
-# include <stddef.h>
-
-typedef struct s_point
-{
-	double	x;
-	double	y;
-	double	z;
-}				t_point;
-
-typedef struct s_mlx
-{
-	void	*ptr;
-	void	*win;
-	void	*img;
-}				t_mlx;
-
-typedef struct s_map
-{
-	size_t	height;
-	size_t	width;
-	t_point	min;
-	t_point	max;
-	t_point	**map;
-}				t_map;
-
-void	free_map(t_point **map, size_t height);
+void	exit_error(char *str);
 
 #endif

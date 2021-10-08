@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   free_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbeaufay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:36:27 by vbeaufay          #+#    #+#             */
-/*   Updated: 2021/10/08 12:38:25 by vbeaufay         ###   ########.fr       */
+/*   Created: 2021/10/08 18:21:48 by vbeaufay          #+#    #+#             */
+/*   Updated: 2021/10/08 18:21:50 by vbeaufay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
+#include "struct.h"
+#include <stddef.h>
+#include <stdlib.h>
 
-# include <stddef.h>
-
-typedef struct s_point
+void	free_map(t_point **map, size_t height)
 {
-	double	x;
-	double	y;
-	double	z;
-}				t_point;
-
-typedef struct s_mlx
-{
-	void	*ptr;
-	void	*win;
-	void	*img;
-}				t_mlx;
-
-typedef struct s_map
-{
-	size_t	height;
-	size_t	width;
-	t_point	min;
-	t_point	max;
-	t_point	**map;
-}				t_map;
-
-void	free_map(t_point **map, size_t height);
-
-#endif
+	if (map)
+	{
+		while (height > 0)
+		{
+			free(map[height - 1]);
+			height--;
+		}
+		free(map);
+	}
+}
