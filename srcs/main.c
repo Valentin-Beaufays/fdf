@@ -13,8 +13,11 @@
 #include "struct.h"
 #include "fdf.h"
 #include "mlx.h"
+#include "error.h"
 #include "parser.h"
 #include <stdio.h>
+#include <string.h>
+#include <errno.h>
 
 void	print_map(t_map *map)
 {
@@ -27,7 +30,7 @@ void	print_map(t_map *map)
 	{
 		while (j < map->width)
 		{
-			printf("%d ", (int)map->map[i][j].z);
+			printf("%d ", (int)map->map[i][j].z / 10);
 			j++;
 		}
 		printf("\n");
@@ -40,6 +43,12 @@ void	init_map(t_map *map)
 {
 	map->width = 0;
 	map->height = 0;
+	map->min.x = 0;
+	map->min.y = 0;
+	map->min.z = 0;
+	map->max.x = 0;
+	map->max.y = 0;
+	map->max.z = 0;
 	map->map = NULL;
 }
 
@@ -75,7 +84,10 @@ int	main(int argc, char *argv[])
 	if (argc == 2)
 	{
 		if (parser(argv[1], &map))
-			return (-1);//TO_DO: free map->map
+		{
+			free_map(map.map, map.height);
+			exit_error(strerror(errno));
+		}
 		print_map(&map);
 	}
 	return (0);

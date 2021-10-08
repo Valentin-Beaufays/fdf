@@ -33,7 +33,11 @@ typedef struct s_map
 {
 	size_t	height;
 	size_t	width;
+	t_point	min;
+	t_point	max;
 	t_point	**map;
 }				t_map;
+
+void	free_map(t_point **map, size_t height);
 
 #endif

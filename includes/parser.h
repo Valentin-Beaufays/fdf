@@ -15,6 +15,7 @@
 
 # include "struct.h"
 
-int	parser(char *file, t_map *map);
+int		parser(char *file, t_map *map);
+void	adapt_map(t_map *map);
 
 #endif

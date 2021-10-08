@@ -13,7 +13,10 @@
 #include "libft.h"
 #include "get_next_line.h"
 #include "struct.h"
+#include "parser.h"
 #include <fcntl.h>
+#include <string.h>
+#include <errno.h>
 
 static size_t	get_size(char *line)
 {
@@ -114,6 +117,8 @@ int	parser(char *file, t_map *map)
 		}
 		free(line);
 	}
-	close(fd);
+	if ((close(fd)) == -1)
+		return (-1);
+	adapt_map(map);
 	return (0);
 }
